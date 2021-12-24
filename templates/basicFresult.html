@@ -1,0 +1,874 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML</title>
+    <link rel='stylesheet' href="{% static 'style.css' %}"/>
+    <script src="{% static 'script.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <header>
+    <h1>
+        <a>ページ2</a>
+    </h1>
+</header>
+<!-- <form action='./id_form' method="GET"> -->
+          {% csrf_token %}
+
+
+      <div style="text-align:center;">
+          <h3><a><span>各アカウントのテキストをクリックして、アカウントの情報を閲覧してください。判定可能になった時点でアンケートフォームから判定結果を回答してください。</span></a></h3>
+          <h3><a><span>10個のアカウントの判定が終わったらページ下部の「次へ」から次のページへ移動してください。</span></a></h3>
+          <h3><a><span>※ページのリロードを行うと、ページの内容が変わってしまうためリロードは行わないでください。</span></a></h3>
+      </div>
+
+
+</form>
+    <br>
+    <br>
+    <br>
+    <input id="acd-check1" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check1">アカウント1</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+    <span>{{A1_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A1_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A1_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A1_result.user_profile}}</span><br></a></h3>
+
+
+    <br>
+    <br>
+</div>
+
+ <div id="a-box">
+    <h2><a><span>・フォローフォロワー数</span><br></a></h2>
+    <h3><a><span>フォロー数:{{A1_result.Follow}}　　フォロワー数:{{A1_result.Follower}}</span><br></a></h3>
+    <h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+    <h3><a><span>直近{{A1_result.recent_pre.0}}件のツイートのうち{{A1_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+    <h3><a><span>{{A1_result.recent_same_pre}}</span><br></a></h3>
+    <h2><a><span>・アカウント作成日</span><br></a></h2>
+  <h3><a><span>{{A1_result.create_day}}</span><br></a></h3>
+  <h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+  <h3><a><span>このアカウントの上位100人のフォロワーのうち{{A1_result.Followers_data.0}}人が鍵アカウントで、{{A1_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+  <h2><a><span>・IDの設定</span><br></a></h2>
+  <h3><a><span>{{A1_result.ids}}</span><br></a></h3>
+  <h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+  <h3><a><span>{{A1_result.profile_url}}</span><br></a></h3>
+ <h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+  <h3><a><span>{{A1_result.same_img}}</span><br></a></h3>
+ {% for list in A1_result.pre_img %}
+<a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A1_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ </div>
+  </div>
+
+  <input id="acd-check2" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check2">アカウント2</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+  <span>{{A2_result.user_id}}の判定結果</span><br><br>
+<img src="{{A2_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A2_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A2_result.user_profile}}</span><br></a></h3>
+
+
+  <br>
+  <br>
+</div>
+
+<div id="a-box">
+  <h2><a><span>・フォローフォロワー数</span><br></a></h2>
+  <h3><a><span>フォロー数:{{A2_result.Follow}}　　フォロワー数:{{A2_result.Follower}}</span><br></a></h3>
+  <h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+  <h3><a><span>直近{{A2_result.recent_pre.0}}件のツイートのうち{{A2_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+  <h3><a><span>{{A2_result.recent_same_pre}}</span><br></a></h3>
+  <h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A2_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A2_result.Followers_data.0}}人が鍵アカウントで、{{A2_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A2_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A2_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+<h3><a><span>{{A2_result.same_img}}</span><br></a></h3>
+{% for list in A2_result.pre_img %}
+ <a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A2_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+</div>
+
+<input id="acd-check3" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check3">アカウント3</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A3_result.user_id}}の判定結果</span><br><br>
+<img src="{{A3_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A3_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A3_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー数:{{A3_result.Follow}}　　フォロワー数:{{A3_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+<h3><a><span>直近{{A3_result.recent_pre.0}}件のツイートのうち{{A3_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h3><a><span>{{A3_result.recent_same_pre}}</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A3_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A3_result.Followers_data.0}}人が鍵アカウントで、{{A3_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A3_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A3_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+<h3><a><span>{{A3_result.same_img}}</span><br></a></h3>
+{% for list in A3_result.pre_img %}
+ <a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A3_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+</div>
+
+<input id="acd-check4" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check4">アカウント4</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A4_result.user_id}}の判定結果</span><br><br>
+<img src="{{A4_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A4_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A4_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー数:{{A4_result.Follow}}　　フォロワー数:{{A4_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+<h3><a><span>直近{{A4_result.recent_pre.0}}件のツイートのうち{{A4_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h3><a><span>{{A4_result.recent_same_pre}}</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A4_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A4_result.Followers_data.0}}人が鍵アカウントで、{{A4_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A4_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A4_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+<h3><a><span>{{A4_result.same_img}}</span><br></a></h3>
+{% for list in A4_result.pre_img %}
+ <a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A4_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+</div>
+
+
+<input id="acd-check5" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check5">アカウント5</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A5_result.user_id}}の判定結果</span><br><br>
+<img src="{{A5_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A5_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A5_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー数:{{A5_result.Follow}}　　フォロワー数:{{A5_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+<h3><a><span>直近{{A5_result.recent_pre.0}}件のツイートのうち{{A5_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h3><a><span>{{A5_result.recent_same_pre}}</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A5_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A5_result.Followers_data.0}}人が鍵アカウントで、{{A5_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A5_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A5_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+<h3><a><span>{{A5_result.same_img}}</span><br></a></h3>
+{% for list in A5_result.pre_img %}
+ <a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A5_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+</div>
+
+
+<input id="acd-check6" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check6">アカウント6</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A6_result.user_id}}の判定結果</span><br><br>
+<img src="{{A6_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A6_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A6_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー数:{{A6_result.Follow}}　　フォロワー数:{{A6_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+<h3><a><span>直近{{A6_result.recent_pre.0}}件のツイートのうち{{A6_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h3><a><span>{{A6_result.recent_same_pre}}</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A6_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A6_result.Followers_data.0}}人が鍵アカウントで、{{A6_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A6_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A6_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+<h3><a><span>{{A6_result.same_img}}</span><br></a></h3>
+{% for list in A6_result.pre_img %}
+ <a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A6_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+</div>
+
+
+<input id="acd-check7" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check7">アカウント7</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A7_result.user_id}}の判定結果</span><br><br>
+<img src="{{A7_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A7_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A7_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー数:{{A7_result.Follow}}　　フォロワー数:{{A7_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+<h3><a><span>直近{{A7_result.recent_pre.0}}件のツイートのうち{{A7_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h3><a><span>{{A7_result.recent_same_pre}}</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A7_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A7_result.Followers_data.0}}人が鍵アカウントで、{{A7_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A7_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A7_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+<h3><a><span>{{A7_result.same_img}}</span><br></a></h3>
+{% for list in A7_result.pre_img %}
+ <a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A7_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+</div>
+
+
+<input id="acd-check8" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check8">アカウント8</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A8_result.user_id}}の判定結果</span><br><br>
+<img src="{{A8_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A8_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A8_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー数:{{A8_result.Follow}}　　フォロワー数:{{A8_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+<h3><a><span>直近{{A8_result.recent_pre.0}}件のツイートのうち{{A8_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h3><a><span>{{A8_result.recent_same_pre}}</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A8_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A8_result.Followers_data.0}}人が鍵アカウントで、{{A8_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A8_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A8_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+<h3><a><span>{{A8_result.same_img}}</span><br></a></h3>
+{% for list in A8_result.pre_img %}
+ <a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A8_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+</div>
+
+
+<input id="acd-check9" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check9">アカウント9</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A9_result.user_id}}の判定結果</span><br><br>
+<img src="{{A9_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A9_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A9_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー数:{{A9_result.Follow}}　　フォロワー数:{{A9_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+<h3><a><span>直近{{A9_result.recent_pre.0}}件のツイートのうち{{A9_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h3><a><span>{{A9_result.recent_same_pre}}</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A9_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A9_result.Followers_data.0}}人が鍵アカウントで、{{A9_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A9_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A9_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+<h3><a><span>{{A9_result.same_img}}</span><br></a></h3>
+{% for list in A9_result.pre_img %}
+ <a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A9_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+</div>
+
+
+<input id="acd-check10" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check10">アカウント10</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A10_result.user_id}}の判定結果</span><br><br>
+<img src="{{A10_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A10_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A10_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー数:{{A10_result.Follow}}　　フォロワー数:{{A10_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数、そのツイートに類似するツイートの有無</span></a></h2>
+<h3><a><span>直近{{A10_result.recent_pre.0}}件のツイートのうち{{A10_result.recent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h3><a><span>{{A10_result.recent_same_pre}}</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A10_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A10_result.Followers_data.0}}人が鍵アカウントで、{{A10_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A10_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A10_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像</span><br></a></h2>
+<h3><a><span>{{A10_result.same_img}}</span><br></a></h3>
+{% for list in A10_result.pre_img %}
+ <a href="{{list}}" class="imglink">画像リンク</a>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+<h2><a> <span>・判定後アンケート</span><br></a></h2>
+<iframe src="{{A10_result.Gform_url.0}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+</div>
+</div>
+
+
+
+<!-- <input id="acd-check11" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check11">アカウント11</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A11_result.user_id}}の判定結果</span><br><br>
+<img src="{{A11_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A11_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A11_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A11_result.Follow}}　　フォロワー:{{A11_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A11_result.recent_pre.0}}件のツイートのうち{{A11_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A11_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A11_result.Followers_data.0}}人が鍵アカウントで、{{A11_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A11_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A11_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A11_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A11_result.same_img}}</span><br></a></h3>
+{% for list in A11_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div>
+
+
+<input id="acd-check12" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check12">アカウント12</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A12_result.user_id}}の判定結果</span><br><br>
+<img src="{{A12_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A12_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A12_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A12_result.Follow}}　　フォロワー:{{A12_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A12_result.recent_pre.0}}件のツイートのうち{{A12_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A12_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A12_result.Followers_data.0}}人が鍵アカウントで、{{A12_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A12_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A12_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A12_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A12_result.same_img}}</span><br></a></h3>
+{% for list in A12_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div>
+
+
+
+<input id="acd-check13" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check13">アカウント13</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A13_result.user_id}}の判定結果</span><br><br>
+<img src="{{A13_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A13_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A13_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A13_result.Follow}}　　フォロワー:{{A13_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A13_result.recent_pre.0}}件のツイートのうち{{A13_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A13_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A13_result.Followers_data.0}}人が鍵アカウントで、{{A13_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A13_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A13_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A13_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A13_result.same_img}}</span><br></a></h3>
+{% for list in A13_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div>
+
+
+<input id="acd-check14" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check14">アカウント14</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A14_result.user_id}}の判定結果</span><br><br>
+<img src="{{A14_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A14_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A14_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A14_result.Follow}}　　フォロワー:{{A14_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A14_result.recent_pre.0}}件のツイートのうち{{A14_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A14_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A14_result.Followers_data.0}}人が鍵アカウントで、{{A14_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A14_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A14_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A14_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A14_result.same_img}}</span><br></a></h3>
+{% for list in A14_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div>
+
+
+<input id="acd-check15" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check15">アカウント15</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A15_result.user_id}}の判定結果</span><br><br>
+<img src="{{A15_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A15_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A15_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A15_result.Follow}}　　フォロワー:{{A15_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A15_result.recent_pre.0}}件のツイートのうち{{A15_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A15_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A15_result.Followers_data.0}}人が鍵アカウントで、{{A15_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A15_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A15_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A15_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A15_result.same_img}}</span><br></a></h3>
+{% for list in A15_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div>
+
+
+
+<input id="acd-check16" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check16">アカウント16</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A16_result.user_id}}の判定結果</span><br><br>
+<img src="{{A16_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A16_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A16_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A16_result.Follow}}　　フォロワー:{{A16_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A16_result.recent_pre.0}}件のツイートのうち{{A16_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A16_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A16_result.Followers_data.0}}人が鍵アカウントで、{{A16_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A16_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A16_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A16_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A16_result.same_img}}</span><br></a></h3>
+{% for list in A16_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div>
+
+
+<input id="acd-check17" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check17">アカウント17</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A17_result.user_id}}の判定結果</span><br><br>
+<img src="{{A17_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A17_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A17_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A17_result.Follow}}　　フォロワー:{{A17_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A17_result.recent_pre.0}}件のツイートのうち{{A17_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A17_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A17_result.Followers_data.0}}人が鍵アカウントで、{{A17_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A17_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A17_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A17_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A17_result.same_img}}</span><br></a></h3>
+{% for list in A17_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div>
+
+
+<input id="acd-check18" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check18">アカウント18</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A18_result.user_id}}の判定結果</span><br><br>
+<img src="{{A18_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A18_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A18_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A18_result.Follow}}　　フォロワー:{{A18_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A18_result.recent_pre.0}}件のツイートのうち{{A18_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A18_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A18_result.Followers_data.0}}人が鍵アカウントで、{{A18_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A18_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A18_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A18_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A18_result.same_img}}</span><br></a></h3>
+{% for list in A18_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div>
+
+
+
+<input id="acd-check19" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check19">アカウント19</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A19_result.user_id}}の判定結果</span><br><br>
+<img src="{{A19_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A19_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A19_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A19_result.Follow}}　　フォロワー:{{A19_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A19_result.recent_pre.0}}件のツイートのうち{{A19_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A19_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A19_result.Followers_data.0}}人が鍵アカウントで、{{A19_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A19_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A19_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A19_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A19_result.same_img}}</span><br></a></h3>
+{% for list in A19_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div>
+
+
+<input id="acd-check20" class="acd-check" type="checkbox">
+<label class="acd-label" for="acd-check20">アカウント20</label>
+<div class="acd-content">
+
+<div style="text-align:center;">
+<span>{{A20_result.user_id}}の判定結果</span><br><br>
+<img src="{{A20_result.img_url}}" width="180" height="180"><br>
+<h3><a><span>{{A20_result.user_name}}</span><br></a></h3>
+<h3><a><span>{{A20_result.user_profile}}</span><br></a></h3>
+
+
+<br>
+<br>
+</div>
+
+<div id="a-box">
+<h2><a><span>・フォローフォロワー数</span><br></a></h2>
+<h3><a><span>フォロー:{{A20_result.Follow}}　　フォロワー:{{A20_result.Follower}}</span><br></a></h3>
+<h2><a><span>・直近の懸賞企画に関するツイート数</span></a></h2>
+<h3><a><span>直近{{A20_result.recent_pre.0}}件のツイートのうち{{A20_resultrecent_pre.1}}件が懸賞企画の可能性があるツイートです。</span><br></a></h3>
+<h2><a><span>・アカウント作成日</span><br></a></h2>
+<h3><a><span>{{A20_result.create_day}}</span><br></a></h3>
+<h2><a> <span>・フォロワー上位100人に含まれる懸賞アカウントの可能性のあるアカウント数</span><br></a>
+<h3><a><span>このアカウントの上位100人のフォロワーのうち{{A20_result.Followers_data.0}}人が鍵アカウントで、{{A20_result.Followers_data.1}}人がほとんどRTしか行なっていないアカウントの可能性があります。</span><br></a></h3>
+<h2><a><span>・IDの設定</span><br></a></h2>
+<h3><a><span>{{A20_result.ids}}</span><br></a></h3>
+<h2><a><span>・プロフィール内のLINE誘導URLの有無</span><br></a></h2>
+<h3><a><span>{{A20_result.profile_url}}</span><br></a></h3>
+<h2><a> <span>・直近100件のツイートにおける懸賞ツイートの有無、類似するツイートの有無</span><br></a>
+<h3><a><span>{{A20_result.recent_same_pre}}</span><br></a></h3>
+<h2><a> <span>・懸賞ツイートに添付されている画像の類似画像検索リンク</span><br></a></h2>
+<h3><a><span>{{A20_result.same_img}}</span><br></a></h3>
+{% for list in A20_result.pre_img %}
+<h3> <a href="{{list}}">画像リンク</a></h3>
+{% empty %}
+<h3><a></a></h3>
+{% endfor %}
+</div>
+</div> -->
+<div style="text-align:end">
+<form action='./basicF_form2' method="POST">
+    {% csrf_token %}
+
+
+
+<button type="submit" name="button" >
+  <font size="6">次へ</font></button>
+  <input type="hidden" name="hidden_data" value={{A1_result.ID}},{{A2_result.ID}},{{A3_result.ID}},{{A4_result.ID}},{{A5_result.ID}},{{A6_result.ID}},{{A7_result.ID}},{{A8_result.ID}},{{A9_result.ID}},{{A10_result.ID}},{{def1list}}>
+  
+</form>
+</div>
+</body>
+</html>

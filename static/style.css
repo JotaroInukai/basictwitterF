@@ -1,0 +1,244 @@
+header {
+    width: 100%;
+    padding: 30px 4% 10px;
+    background-color: #d4fffd;
+}
+
+
+
+body {
+   margin: 0;
+   padding: 0;
+   line-height: 0.8;
+   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   background-color: #FF00;
+}
+h1 a{
+    color:#000000;
+    font-size: 80%;
+
+}
+h2 a{
+    color:#000000;
+    font-size:80%;
+    width: 500px;
+    background:linear-gradient(transparent 0%, #ffd700 0%);
+}
+
+
+
+h3 a{
+    color:#696969;
+    font-size:80%;
+}
+
+.imglink{
+    display: inline-block;
+    margin: 5px 3px;
+
+}
+
+#a-box{
+    width: 860px;
+    height:16px;
+    margin-left:200px;
+    margin-top:8px;
+}
+
+
+.acd-check{
+    display: none;
+}
+.acd-checkB{
+    display: none;
+}
+.acd-checkC{
+    display: none;
+}
+.acd-label{
+    background: #333;
+    color: #fff;
+    display: block;
+    margin-bottom: 1px;
+    padding: 10px;
+}
+.acd-content{
+    border: 1px solid #333;
+    height: 0;
+    opacity: 0;
+    padding: 0 10px;
+    transition: .5s;
+    visibility: hidden;
+}
+
+.acd-check:checked + .acd-label + .acd-content{
+    height: 1600px;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+}
+
+
+.acd-labelB{
+    background: #333;
+    color: #fff;
+    display: block;
+    margin-bottom: 1px;
+    padding: 10px;
+
+}
+.acd-contentB{
+    border: 1px solid #333;
+    height: 0;
+    opacity: 0;
+    padding: 0 10px;
+    transition: .5s;
+    visibility: hidden;
+}
+
+
+.acd-checkB:checked + .acd-labelB + .acd-contentB{
+    height: 1300px;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+
+}
+.acd-labelC{
+    background: #333;
+    color: #fff;
+    display: block;
+    margin-bottom: 1px;
+    padding: 10px;
+
+}
+.acd-contentC{
+    border: 1px solid #333;
+    height: 0;
+    opacity: 0;
+    padding: 0 10px;
+    transition: .5s;
+    visibility: hidden;
+}
+
+
+.acd-checkC:checked + .acd-labelC + .acd-contentC{
+    height: 1000px;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+
+}
+.acd-check2{
+    display: none;
+}
+.acd-check3{
+    display: none;
+}
+.acd-check4{
+    display: none;
+}
+.acd-check5{
+    display: none;
+}
+
+.acd-check6{
+    display: none;
+}
+
+.acd-check7{
+    display: none;
+}
+
+.acd-check8{
+    display: none;
+}
+
+.acd-check9{
+    display: none;
+}
+
+.acd-check10{
+    display: none;
+}
+
+
+.acd-checkB1{
+    display: none;
+}
+
+.acd-checkB2{
+    display: none;
+}
+
+.acd-checkB3{
+    display: none;
+}
+
+.acd-checkB4{
+    display: none;
+}
+
+.acd-checkB5{
+    display: none;
+}
+
+.acd-checkB6{
+    display: none;
+}
+
+.acd-checkB7{
+    display: none;
+}
+
+.acd-checkB8{
+    display: none;
+}
+
+.acd-checkB9{
+    display: none;
+}
+
+.acd-checkB10{
+    display: none;
+}
+
+.acd-checkC1{
+    display: none;
+}
+
+.acd-checkC2{
+    display: none;
+}
+
+.acd-checkC3{
+    display: none;
+}
+
+.acd-checkC4{
+    display: none;
+}
+
+.acd-checkC5{
+    display: none;
+}
+
+.acd-checkC6{
+    display: none;
+}
+
+.acd-checkC7{
+    display: none;
+}
+
+.acd-checkC8{
+    display: none;
+}
+
+.acd-checkC9{
+    display: none;
+}
+
+.acd-checkC10{
+    display: none;
+}

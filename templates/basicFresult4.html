@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML</title>
+    <link rel='stylesheet' href="{% static 'style.css' %}"/>
+    <script src="{% static 'script.js' %}"></script>
+  </head>
+  <header>
+    <h1>
+        <a>ページ1</a>
+    </h1>
+</header>
+
+          {% csrf_token %}
+          <div style="text-align:center;">
+            <h3><a><span>各アカウントのテキストをクリックして、アカウントの情報を閲覧してください。判定可能になった時点でアンケートフォームから判定結果を回答してください。</span></a></h3>
+            <h3><a><span>10個のアカウントの判定が終わったら作業は終わりになります。ご協力ありがとうございます。</span></a></h3>
+            <h3><a><span>※ページのリロードを行うと、ページの内容が変わってしまうためリロードは行わないでください。</span></a></h3>
+           
+         </div>
+         
+    <br>
+    <br>
+    <br>
+    <input id="acd-checkC1" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC1">アカウント1</label>
+<div class="acd-contentC">
+
+<div style="text-align:center;">
+    <span>{{A1_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A1_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A1_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A1_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A1_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A1_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A1_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<input id="acd-checkC2" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC2">アカウント2</label>
+<div class="acd-contentC">
+
+
+<div style="text-align:center;">
+    <span>{{A2_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A2_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A2_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A2_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A2_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A2_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A2_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<input id="acd-checkC3" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC3">アカウント3</label>
+<div class="acd-contentC">
+
+<div style="text-align:center;">
+    <span>{{A3_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A3_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A3_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A3_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A3_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A3_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A3_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<input id="acd-checkC4" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC4">アカウント4</label>
+<div class="acd-contentC">
+
+<div style="text-align:center;">
+    <span>{{A4_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A4_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A4_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A4_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A5_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A4_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A4_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<input id="acd-checkC5" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC5">アカウント5</label>
+<div class="acd-contentC">
+
+<div style="text-align:center;">
+    <span>{{A5_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A5_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A5_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A5_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A5_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A5_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A5_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<input id="acd-checkC6" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC6">アカウント6</label>
+<div class="acd-contentC">
+
+<div style="text-align:center;">
+    <span>{{A6_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A6_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A6_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A6_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A6_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A6_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A6_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<input id="acd-checkC7" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC7">アカウント7</label>
+<div class="acd-contentC">
+
+<div style="text-align:center;">
+    <span>{{A7_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A7_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A7_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A7_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A7_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A7_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A7_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<input id="acd-checkC8" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC8">アカウント8</label>
+<div class="acd-contentC">
+
+<div style="text-align:center;">
+    <span>{{A8_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A8_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A8_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A8_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A8_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A8_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A8_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<input id="acd-checkC9" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC9">アカウント9</label>
+<div class="acd-contentC">
+
+<div style="text-align:center;">
+    <span>{{A9_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A9_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A9_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A9_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A9_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A9_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A9_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<input id="acd-checkC10" class="acd-checkC" type="checkbox">
+<label class="acd-labelC" for="acd-checkC10">アカウント10</label>
+<div class="acd-contentC">
+
+<div style="text-align:center;">
+    <span>{{A10_result.user_id}}の判定結果</span><br><br>
+ <img src="{{A10_result.img_url}}" width="180" height="180"><br>
+ <h3><a><span>{{A10_result.user_name}}</span><br></a></h3>
+ <h3><a><span>{{A10_result.user_profile}}</span><br></a></h3>
+ <h2><a><span>・ 下記URLから"{{A10_result.user_name}}"のツイートを10件閲覧してください</span><br></a></h2>
+  <a href="{{A10_result.twitterURL}}" class="imglink">Twitter</a>
+  <h2><a> <span>・判定後アンケート</span><br></a></h2>
+  <iframe src="{{A10_result.Gform_url.2}}"width="720" height="486" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+ 
+</div>
+</div>
+
+<div style="text-align:end">
+  <form action='./basicF_form' method="POST">
+     {% csrf_token %}
+  
+  
+  
+  <button type="submit" name="button"><font size="6">次へ</font></button>
+  <input type="hidden" name="hidden_data" value={{A1_result.ID}},{{A2_result.ID}},{{A3_result.ID}},{{A4_result.ID}},{{A5_result.ID}},{{A6_result.ID}},{{A7_result.ID}},{{A8_result.ID}},{{A9_result.ID}},{{A10_result.ID}}>
+  </form>
+  </div>
+  </body>
+  </html>
