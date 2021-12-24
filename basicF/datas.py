@@ -1442,17 +1442,17 @@ def A27():
     return A27
 
 def A28():
-    img_url="https://pbs.twimg.com/profile_images/1455003803795996672/tIOa8DsZ_400x400.jpg"
-    user_name="ゆーた🐢ゆとりの脱サラ戦略"
-    user_id="@yuta_minimarke"
-    TwitterURL="https://twitter.com/yuta_minimarke?s=20"
+    img_url="https://pbs.twimg.com/profile_images/1440178135228555273/fehwM_8U_400x400.png"
+    user_name="さとけ｜リメイクタイムレスマーケティング"
+    user_id="@Satoke_brand"
+    TwitterURL="https://twitter.com/Satoke_brand?s=20"
     Gform_urlI="https://docs.google.com/forms/d/e/1FAIpQLSe94N2aIMgo23gFbKfGqBtIVr5l0tOi2JZIuJ-wsd60SGEUtQ/viewform?embedded=true"
     Gform_urlW="https://docs.google.com/forms/d/e/1FAIpQLScx6qxCKDIfNKa-KzX-3G_sVL4GxQ5kRUSqNqhzrLouELKSdw/viewform?embedded=true"
     Gform_urlT="https://docs.google.com/forms/d/e/1FAIpQLSdaIt3yEfY9l5_X4kmrZGt3f--lyZEDbzceMNpx5IK17TlUyQ/viewform?embedded=true"
-    user_profile="【たった4ヶ月で脱サラしたゆとり】満員電車に揺られ出勤してもそこそこの給料しか貰えない毎日に嫌気がさしたゆとり世代のあなたへ￤Webマーケ×SNSで戦略的に稼ぐ『はじめの一歩』を発信￤副業から▶︎月収60万達成￤28歳￤元エンジニア￤現フリーランス2年目"
-    create_day="2020年1月3日"
+    user_profile="リメイクマーケはあなたの不安な人生さえも理想世界にリメイクする。｜コロナで世帯収入200万円減▶︎本業16時間拘束でも副業2時間の4ヶ月目200万円突破｜強者から“ズラし””絞り”の『リポジション』で強引にシェアを奪い、強者の売れてる文章にあなたの価値感で『リデザイン』し文章収益に｜トータルリメイクは【弱者救済スキル】"
+    create_day="2021年3月12日"
     ids="初期設定ではありません。"
-    profile_url="URL欄にラインへの誘導URLが設定されています。"
+    profile_url="LINEへの誘導URLは設定されていません。"
     recent_same_pre="このユーザの直近100件のツイートに懸賞ツイートはありません。"
     same_img="類似画像なし"
     
@@ -1462,27 +1462,27 @@ def A28():
         "user_id":user_id,
         "user_profile":user_profile,
         "Gform_url":[Gform_urlI,Gform_urlW,Gform_urlT],
-        "Follow":2108,
-        "Follower":11627,
-        "Alltweet":28356,
-        "recent_pre":[100,0],
+        "Follow":372,
+        "Follower":5966,
+        "Alltweet":40431,
+        "recent_pre":[92,0],
         "create_day":create_day,
-        "Followers_data":[0,3],
+        "Followers_data":[0,4],
         "ids":ids,
         "profile_url":profile_url,
         "recent_same_pre":recent_same_pre,
         "same_img":same_img,
         "pre_img":[],
-        "BothF":639,
-        "noreturnF":[2386,21.1],
-        "onlyF":[27,95.9],
-        "mention":96,
-        "solo_tweet":4,
-        "url_ratio":2,
+        "BothF":341,
+        "noreturnF":[5625,5.7],
+        "onlyF":[31,91.7],
+        "mention":89,
+        "solo_tweet":11,
+        "url_ratio":11,
         "media":0,
         "nonmedia":100,
-        "RT":1,
-        "nonRT":99,
+        "RT":4,
+        "nonRT":96,
         "twitterURL":TwitterURL,
         "ID":28,
 
@@ -1513,7 +1513,7 @@ def A29():
         "Gform_url":[Gform_urlI,Gform_urlW,Gform_urlT],
         "Follow":1933,
         "Follower":3611,
-        "Alltweet":2693,
+        "Alltweet":2711,
         "recent_pre":[100,0],
         "create_day":create_day,
         "Followers_data":[2,3],
@@ -1522,16 +1522,16 @@ def A29():
         "recent_same_pre":recent_same_pre,
         "same_img":same_img,
         "pre_img":[],
-        "BothF":639,
-        "noreturnF":[2386,21.1],
-        "onlyF":[27,95.9],
-        "mention":96,
-        "solo_tweet":4,
-        "url_ratio":2,
+        "BothF":1918,
+        "noreturnF":[707,73.1],
+        "onlyF":[25,98.7],
+        "mention":79,
+        "solo_tweet":21,
+        "url_ratio":27,
         "media":0,
         "nonmedia":100,
-        "RT":1,
-        "nonRT":99,
+        "RT":0,
+        "nonRT":100,
         "twitterURL":TwitterURL,
         "ID":29,
 
@@ -1562,7 +1562,7 @@ def A30():
         "Gform_url":[Gform_urlI,Gform_urlW,Gform_urlT],
         "Follow":145,
         "Follower":16116,
-        "Alltweet":43168,
+        "Alltweet":8725,
         "recent_pre":[70,0],
         "create_day":create_day,
         "Followers_data":[15,6],
@@ -1571,16 +1571,16 @@ def A30():
         "recent_same_pre":recent_same_pre,
         "same_img":same_img,
         "pre_img":[],
-        "BothF":639,
-        "noreturnF":[2386,21.1],
-        "onlyF":[27,95.9],
-        "mention":96,
-        "solo_tweet":4,
-        "url_ratio":2,
+        "BothF":100,
+        "noreturnF":[16112,0.6],
+        "onlyF":[45,69],
+        "mention":97,
+        "solo_tweet":3,
+        "url_ratio":3,
         "media":0,
         "nonmedia":100,
-        "RT":1,
-        "nonRT":99,
+        "RT":7,
+        "nonRT":93,
         "twitterURL":TwitterURL,
         "ID":30,
 
