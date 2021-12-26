@@ -824,7 +824,7 @@ def A15():
     return A15
 
 def A16():
-    img_url="https://pbs.twimg.com/profile_images/1466717055323836419/Xq3ZnVgg_400x400.jpg"
+    img_url="https://pbs.twimg.com/profile_images/1474786084832034816/81MWpnOn_400x400.jpg"
     user_name="くら｜固ツイ▶︎お金の裏教科書"
     user_id="@kura_syacho"
     TwitterURL="https://twitter.com/kura_syacho?s=20"
